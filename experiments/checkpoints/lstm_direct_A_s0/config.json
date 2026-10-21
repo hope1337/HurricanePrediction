@@ -1,0 +1,25 @@
+{
+  "hidden_size": 64,
+  "num_layers": 2,
+  "dropout": 0.1,
+  "forecast_steps": 8,
+  "batch_size": 64,
+  "lr": 0.001,
+  "optimizer": "adam",
+  "weight_decay": 0.0,
+  "huber_delta": 50.0,
+  "max_epochs": 100,
+  "early_stopping_patience": 15,
+  "gradient_clip_norm": 1.0,
+  "rollout_every": 1,
+  "scheduler": {
+    "enabled": true,
+    "factor": 0.5,
+    "patience": 5
+  },
+  "architecture": "lstm",
+  "strategy": "direct",
+  "feature_config": "A",
+  "input_size": 2,
+  "seed": 0
+}

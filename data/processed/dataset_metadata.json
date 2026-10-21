@@ -1,0 +1,224 @@
+{
+  "raw_path": "data/IBTrACS.WP.v04r01.nc",
+  "geometry_backend": "pyproj.Geod(WGS84)",
+  "filter_steps": [
+    {
+      "step": "raw",
+      "description": "All raw records (numobs cells)",
+      "n_obs": 249084,
+      "n_storms": 4255
+    },
+    {
+      "step": "season",
+      "description": "SEASON in [1980, 2024]",
+      "n_obs": 104927,
+      "n_storms": 1471
+    },
+    {
+      "step": "basin",
+      "description": "Per-observation BASIN == 'WP'",
+      "n_obs": 100970,
+      "n_storms": 1471
+    },
+    {
+      "step": "track",
+      "description": "TRACK_TYPE == 'main'",
+      "n_obs": 100386,
+      "n_storms": 1446
+    },
+    {
+      "step": "synoptic",
+      "description": "UTC synoptic hours [0, 6, 12, 18], minute == 0",
+      "n_obs": 50674,
+      "n_storms": 1446
+    },
+    {
+      "step": "valid",
+      "description": "Finite LAT in [-90,90], LON in [0,360], non-missing TIME",
+      "n_obs": 50674,
+      "n_storms": 1446
+    }
+  ],
+  "n_duplicates_dropped": 0,
+  "n_segments": 1451,
+  "segments_len_ge14": 1294,
+  "splits": {
+    "train": {
+      "n_windows": 27719,
+      "n_storms": 1078,
+      "seasons": [
+        1980,
+        2016
+      ],
+      "X_main_shape": [
+        27719,
+        5,
+        4
+      ],
+      "X_pos_shape": [
+        27719,
+        5,
+        2
+      ],
+      "X_spd_shape": [
+        27719,
+        5,
+        5
+      ],
+      "Y_shape": [
+        27719,
+        8,
+        2
+      ]
+    },
+    "validation": {
+      "n_windows": 2499,
+      "n_storms": 118,
+      "seasons": [
+        2017,
+        2020
+      ],
+      "X_main_shape": [
+        2499,
+        5,
+        4
+      ],
+      "X_pos_shape": [
+        2499,
+        5,
+        2
+      ],
+      "X_spd_shape": [
+        2499,
+        5,
+        5
+      ],
+      "Y_shape": [
+        2499,
+        8,
+        2
+      ]
+    },
+    "test": {
+      "n_windows": 2207,
+      "n_storms": 98,
+      "seasons": [
+        2021,
+        2024
+      ],
+      "X_main_shape": [
+        2207,
+        5,
+        4
+      ],
+      "X_pos_shape": [
+        2207,
+        5,
+        2
+      ],
+      "X_spd_shape": [
+        2207,
+        5,
+        5
+      ],
+      "Y_shape": [
+        2207,
+        8,
+        2
+      ]
+    }
+  },
+  "feature_configs": {
+    "A": {
+      "name": "position_only",
+      "columns": [
+        0,
+        1
+      ],
+      "shape": [
+        5,
+        2
+      ]
+    },
+    "B": {
+      "name": "position_speed_dir",
+      "columns": [
+        0,
+        1,
+        4,
+        5,
+        6
+      ],
+      "shape": [
+        5,
+        5
+      ]
+    },
+    "C": {
+      "name": "position_velocity",
+      "columns": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "shape": [
+        5,
+        4
+      ]
+    }
+  },
+  "velocity_unit": "kmh",
+  "lon_convention": "degrees_east_0_360",
+  "scaler": {
+    "fitted_on": "train",
+    "columns": [
+      "LAT",
+      "LON_U",
+      "VE_KMH",
+      "VN_KMH",
+      "SPEED_KMH",
+      "SIN_DIR",
+      "COS_DIR"
+    ],
+    "mean": [
+      18.35633103395851,
+      137.50262496316842,
+      -8.03899092715865,
+      8.059302696259698,
+      18.37962493119996,
+      -0.45786657794274405,
+      0.4150129014314409
+    ],
+    "scale": [
+      8.434243200140003,
+      15.129592403890904,
+      14.864160062854822,
+      9.520729510301491,
+      10.16634975041809,
+      0.6457041596224219,
+      0.4485405518954871
+    ]
+  },
+  "eda_comparison": {
+    "train": {
+      "eda_13obs_windows": 28823,
+      "new_14obs_windows": 27719,
+      "delta": -1104,
+      "reason": "Task 2 requires 6 history positions + 8 targets (14 obs) vs EDA's 5 + 8 (13 obs); every EDA-eligible segment (>=13 obs) yields exactly one fewer window."
+    },
+    "validation": {
+      "eda_13obs_windows": 2620,
+      "new_14obs_windows": 2499,
+      "delta": -121,
+      "reason": "Task 2 requires 6 history positions + 8 targets (14 obs) vs EDA's 5 + 8 (13 obs); every EDA-eligible segment (>=13 obs) yields exactly one fewer window."
+    },
+    "test": {
+      "eda_13obs_windows": 2307,
+      "new_14obs_windows": 2207,
+      "delta": -100,
+      "reason": "Task 2 requires 6 history positions + 8 targets (14 obs) vs EDA's 5 + 8 (13 obs); every EDA-eligible segment (>=13 obs) yields exactly one fewer window."
+    }
+  },
+  "config_sha256": "b77ed2c89ce48e66"
+}

@@ -1,0 +1,17 @@
+numpy>=2.0
+pandas>=3.0
+matplotlib>=3.8
+scipy>=1.14
+xarray>=2024.0
+netCDF4>=1.6
+cftime>=1.6
+h5netcdf>=1.0
+pyyaml>=6.0
+pyproj>=3.6
+scikit-learn>=1.4
+joblib>=1.4
+pytest>=8.0
+# PyTorch (CPU). Install separately to control CPU/GPU builds:
+#   CPU-only (Windows/Linux):  pip install torch --index-url https://download.pytorch.org/whl/cpu
+#   Default (CUDA, Linux):     pip install torch
+torch>=2.4

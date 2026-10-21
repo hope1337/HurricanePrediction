@@ -1,0 +1,44 @@
+{
+  "raw_path": "data/IBTrACS.WP.v04r01.nc",
+  "processed_dir": "data/processed",
+  "eda_tables_dir": "EDA/tables",
+  "seasons": [
+    1980,
+    2024
+  ],
+  "splits": {
+    "train": [
+      1980,
+      2016
+    ],
+    "validation": [
+      2017,
+      2020
+    ],
+    "test": [
+      2021,
+      2024
+    ]
+  },
+  "interval_hours": 6,
+  "interval_tolerance_seconds": 1.0,
+  "synoptic_hours": [
+    0,
+    6,
+    12,
+    18
+  ],
+  "basin": "WP",
+  "track_type": "main",
+  "history_positions": 6,
+  "input_steps": 5,
+  "forecast_steps": 8,
+  "velocity_unit": "kmh",
+  "ellipsoid": "WGS84",
+  "lon_convention": "degrees_east_0_360",
+  "scaler": "standard",
+  "normalize_targets": false,
+  "main_feature_config": "C",
+  "seed": 42,
+  "config_path": "configs/data.yaml"
+}
