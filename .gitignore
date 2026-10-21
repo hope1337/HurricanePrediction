@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Large raw data (re-downloadable from NOAA IBTrACS)
+data/*.nc
+
+# Regenerable pipeline outputs (recreate with scripts/preprocess.py)
+data/processed/
+
+# Training checkpoints (large binaries; retrain via scripts/train.py)
+experiments/checkpoints/
+*.pt
+
+# Logs (keep results/, figures/, report.md tracked)
+experiments/logs/
+*.log

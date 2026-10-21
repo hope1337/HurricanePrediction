@@ -1,0 +1,24 @@
+# Model baselines — IBTrACS WP trajectory forecasting (Task 3)
+# Used by: python scripts/demo_models.py  (illustrative; training comes later)
+
+# Fair-comparison baseline: identical history, features, hidden size, layers
+# and head design across architectures. Exact parameter equality is NOT
+# expected (LSTM has 4 gates, GRU 3, RNN 1) — counts are recorded, not matched.
+baseline:
+  hidden_size: 64
+  num_layers: 2
+  dropout: 0.1
+  forecast_steps: 8
+  interval_hours: 6.0
+  rnn_nonlinearity: tanh
+  bidirectional: false
+
+# Input dimensions per ablation feature config (Task 2)
+feature_configs:
+  A: {input_size: 2, description: "[LAT, LON] position only"}
+  B: {input_size: 5, description: "[LAT, LON, SPEED, sinDIR, cosDIR]"}
+  C: {input_size: 4, description: "[LAT, LON, v_E, v_N] (primary)"}
+
+strategies: [direct, recursive]
+architectures: [rnn, gru, lstm]
+primary_feature_config: C

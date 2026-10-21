@@ -1,0 +1,2 @@
+raw_observations,raw_storms,season_min,season_max,time_min_utc,time_max_utc,study_observations,study_storms,lat_min,lat_max,lon_min_file_convention,lon_max_file_convention,duplicate_sid_time
+249084,4255,1884,2026,1884-06-24 16:00:00+00:00,2026-10-18 00:00:00+00:00,104927,1471,0.10000000149011612,70.0999984741211,56.0,266.8999938964844,0

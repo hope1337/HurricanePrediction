@@ -1,0 +1,41 @@
+# Training defaults — IBTrACS WP trajectory forecasting (Task 5)
+# Override from CLI, e.g.: python scripts/train.py --model gru --strategy recursive --epochs 50
+
+seed: 0
+device: auto            # auto | cpu | cuda
+processed_dir: data/processed
+experiments_dir: experiments
+
+model_defaults: &model_defaults
+  hidden_size: 64
+  num_layers: 2
+  dropout: 0.1
+  forecast_steps: 8
+  batch_size: 64
+  lr: 0.001
+  optimizer: adam       # adam | adamw
+  weight_decay: 0.0
+  huber_delta: 50.0    # km; initial value to validate, not an established optimum
+  max_epochs: 100
+  early_stopping_patience: 15
+  gradient_clip_norm: 1.0
+  rollout_every: 1      # recursive rollout validation cadence (epochs)
+  scheduler: {enabled: true, factor: 0.5, patience: 5}
+
+main_experiment:
+  architectures: [rnn, gru, lstm]
+  strategies: [recursive, direct]
+  feature_config: C
+  seeds: [0]
+
+ablation_experiment:
+  architecture: lstm
+  strategy: direct
+  feature_configs: [A, B, C]
+  input_sizes: {A: 2, B: 5, C: 4}
+  seeds: [0]
+
+movement_experiment:
+  turn_deg: 30.0            # max circular bearing change over history -> turning
+  low_speed_kmh: 5.0        # mean history speed below this -> ambiguous
+  models: all               # all six main models, reuse stored test predictions

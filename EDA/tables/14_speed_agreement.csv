@@ -1,0 +1,2 @@
+n_compared,pearson_r,mean_residual_reported_minus_pastonly_kts,median_residual_kts,p90_abs_residual_kts,first_obs_per_storm_nan_by_construction
+103456,0.981726675355763,-0.02267581361379335,-0.002712412510502027,2.0026933261631807,4255

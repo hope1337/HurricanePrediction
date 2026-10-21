@@ -1,0 +1,4 @@
+split,seasons,n_obs,n_storms,n_obs_in_6h_runs,n_runs_ge2,storms_with_ge13_run,n_windows_5in_8future
+train,1980-2016,42945,1207,42942,1208,1104,28823
+validation,2017-2020,4155,131,4155,131,121,2620
+test,2021-2024,3574,108,3574,109,100,2307

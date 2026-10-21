@@ -1,0 +1,4 @@
+filter,excluded_obs,reason
+F1_season,144157,"Season outside [1980, 2024]"
+F2_basin,3957,Per-observation BASIN != 'WP' (transitions into EP/NI)
+F3_track,584,"TRACK_TYPE != 'main' (spur-merge/split/other, PROVISIONAL, US-PROVISIONAL)"

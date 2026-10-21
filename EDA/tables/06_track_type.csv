@@ -1,0 +1,8 @@
+TRACK_TYPE,n_obs,n_storms
+PROVISIONAL,1634,30
+US-PROVISIONAL,2049,34
+US-PROVISIONAL_spur,25,1
+main,243328,4107
+spur-merge,1165,42
+spur-other,422,18
+spur-split,461,23

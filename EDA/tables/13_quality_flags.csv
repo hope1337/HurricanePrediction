@@ -1,0 +1,2 @@
+invalid_or_missing_position,duplicate_sid_time,out_of_order_within_storm,suspicious_jump_gt1000km,recomputed_speed_gt80kts,reported_speed_gt80kts,reported_speed_missing_pct,reported_dir_missing_pct,reported_dir_out_of_0_360
+0,0,0,0,25,18,0.0020073549485314195,0.0020073549485314195,0

@@ -1,0 +1,38 @@
+# Preprocessing configuration — IBTrACS WP trajectory prediction (Task 2)
+# Run: python scripts/preprocess.py --config configs/data.yaml
+
+raw_path: data/IBTrACS.WP.v04r01.nc
+processed_dir: data/processed
+eda_tables_dir: EDA/tables
+
+seasons: [1980, 2024]
+splits:
+  train: [1980, 2016]
+  validation: [2017, 2020]
+  test: [2021, 2024]
+
+# Temporal sampling
+interval_hours: 6
+interval_tolerance_seconds: 1.0
+synoptic_hours: [0, 6, 12, 18]
+
+# Filtering
+basin: WP            # per-observation rule; obs outside WP are dropped (segments never span them)
+track_type: main     # only TRACK_TYPE == 'main'; spur/provisional rows excluded
+
+# Sliding windows: 6 history positions (t-30..t) -> 5 causal input rows (t-24..t) + 8 targets (t+6..t+48)
+history_positions: 6
+input_steps: 5
+forecast_steps: 8
+
+# Features / geodesy
+velocity_unit: kmh
+ellipsoid: WGS84     # via pyproj.Geod when available, else verified haversine fallback
+lon_convention: degrees_east_0_360   # stored Y + metadata; X uses per-segment unwrapped lon
+
+# Normalization (train-only fitting)
+scaler: standard     # mean/std per feature column over all train input timesteps
+normalize_targets: false
+
+main_feature_config: C
+seed: 42
